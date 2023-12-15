@@ -1,0 +1,49 @@
+@import './mixins.scss';
+@import './variables.scss';
+
+.suggested{
+    margin-bottom: 50px;
+    &__upper__box{
+        width: 100%;
+        padding-right: 150px;
+        @include df(row,flex-end,space-between);
+        margin-bottom: 30px;
+    }
+    &__video__image__box{
+        position: relative;
+        margin-bottom: 10px;
+        width: 100%;
+    }
+
+    &__video__img{
+        width: 100%;
+        height: 250px;
+    }
+
+    &__video__duration{
+        position: absolute;
+        right: 10px;
+        bottom: 10px;
+        background-color: #0000004d;
+        padding: 3px 9px;
+        border-radius: 12px;
+        color: white;
+        font-size: 14px;
+        line-height: 17.5px;
+    }
+
+    &__video__name{
+        font-size: 16px;
+        line-height: 20px;
+        margin-bottom: 4px;
+        color: $video-heading-color;
+    }
+
+    &__more__info__box{
+        width: 100%;
+        @include df(row,center,space-between);
+        font-size: 13px;
+        line-height: 16px;
+        color: $video-view-color;
+    }
+}

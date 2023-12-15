@@ -1,0 +1,41 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+*,*::after,*::before{
+    box-sizing: border-box;
+}
+
+img{
+    vertical-align: middle;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+ul,ol,li{
+    list-style-type: none;
+}
+
+body{
+    font-family: sans-serif;
+    font-size: 16px;
+    overflow-x: hidden;
+}
+
+body::-webkit-scrollbar {
+    display: block;
+    width: 12px;
+}
+
+  body::-webkit-scrollbar-thumb {
+    background: rgb(59, 59, 59); 
+    border-radius: 10px;
+    border: 2px solid white;
+  }
+
+  .noneNavbar{
+    display: none !important;
+  }

@@ -1,0 +1,100 @@
+@import './mixins.scss';
+@import './variables.scss';
+.main{
+    @include df();
+    position: relative;
+    padding-top: 30px;
+    width: 100%;
+    padding-left: 31px;
+}
+
+.navbar{
+    position: fixed;
+    overflow-y: scroll;
+    top: 114px;
+    bottom: 0;
+    padding-right: 78px;
+    padding-bottom: 40px;
+    &::-webkit-scrollbar {
+        position: absolute;
+        display: none;
+    }
+    
+    &:hover{
+        padding-right: 75px;
+        &::-webkit-scrollbar {
+            display: block;
+            width: 8px;
+        }
+        
+        /* Handle */
+        &::-webkit-scrollbar-thumb {
+            background: rgb(145, 145, 145); 
+            border-radius: 10px;
+        }
+    }
+    
+    &__primary__list{
+        @include df(column);
+        gap: 28px;
+        margin-bottom: 60px;
+    }
+    
+    &__direction__box.active{
+        color: $bell__title-color;
+        svg{
+            fill:$bell__title-color
+        }
+    }
+    
+    &__direction__box{
+        @include df(row,center);
+        gap: 13px;
+        svg{
+            fill: #0000003d;
+        }
+        &:hover{
+            svg{
+                fill: rgb(33, 133, 220);
+            }
+            color: rgb(33, 133, 220);
+        }
+    }
+    
+    &__secondary__list{
+        @include df(column);
+        gap: 28px;
+    }
+    
+    &__showMore__box{
+        @include df(row,center);
+        gap: 13px;
+        margin-top: 29px;
+        cursor: pointer;
+        svg{
+            fill: #0000003d;
+        }
+        &:hover{
+            svg{
+                fill: rgb(33, 133, 220);
+            }
+            color: rgb(33, 133, 220);
+        }
+    }
+    
+    &__settings__box{
+        margin-top: 104px;
+    }
+}
+
+.data{
+    width: 100%;
+    margin-top: -5px;
+    padding-left: 230px;
+}
+
+.rotate{
+    transform: rotate(180deg);
+}
+
+@import './PrivateSection.scss'
