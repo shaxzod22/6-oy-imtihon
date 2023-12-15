@@ -3,7 +3,34 @@
 
 .food{
     padding-bottom: 64px;
+&__chanel__title{
+    font-size: 16px;
+    line-height: 20px;
+    color: $video-view-color;
+}
 
+&__custom__btn__wrapper{
+    @include df(row,center);
+    gap: 40px;
+}
+
+&__subs__btn{
+    width: 154px;
+    height: 40px;
+    background-color: $bell__title-color;
+    color: white;
+    font-size: 16px;
+    line-height: 20px;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    &:hover{
+        opacity: 0.8;
+    }
+    &:active{
+        opacity: 0.6;
+    }
+}
     &__video__image__box{
         position: relative;
         margin-bottom: 10px;

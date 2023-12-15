@@ -23,7 +23,7 @@ const FoodDrinkSection = () => {
     <div className="private__title__box">
     <img src={Food} alt="account avatar" className="private__avagtar__img" width={50} height={50} />
 
-    <h2 className="private__account__name">
+    <h2 className="food__account__name">
     Food & Drink
     </h2>
 
