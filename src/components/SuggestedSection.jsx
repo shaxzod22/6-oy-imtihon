@@ -1,19 +1,25 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Keyboard, Scrollbar, Navigation, Pagination } from 'swiper/modules';
-import ExampleSug from './../assets/image/ExampleSuggestion.png'
 import CustomBtn from "./CustomBtn"
 import 'swiper/css';
 import 'swiper/css/navigation';
 import './../components/styles/SuggestedSection.scss'
+import useFetch from './useFetch';
+import { Link } from 'react-router-dom';
 
 const SuggestedSection = () => {
+  let year = new Date().getFullYear()
+  let month = new Date().getMonth() + 1
+  let date = new Date().getDate()
+  const data = useFetch('suggested')
+  console.log(data);
     return (
         <section className="suggested">
         <div className="suggested__container">
         <Swiper  
         slidesPerView={2.9}
         spaceBetween={30}
-        loop={true}
+        loop={data.length>=6?true:false}
         centeredSlides={false}
         slidesPerGroupSkip={10}
         modules={[Keyboard, Scrollbar, Navigation, Pagination]}
@@ -25,97 +31,26 @@ const SuggestedSection = () => {
         </h2>
         <CustomBtn/>
         </div>
-        
-        <SwiperSlide>
-      <div className="link">
+        {data?  data.map((card,index)=>(
+       <SwiperSlide key={index}>
+      <Link to={`/video/:${card.id.videoId}`} className="link">
        <div className="suggested__video__image__box">
-       <img src={ExampleSug} alt="account icon" width={250} height={150} className="suggested__video__img" />
+       <img src={card.snippet.thumbnails.medium.url} alt="account icon" width={250} height={150} className="suggested__video__img" />
        <p className="suggested__video__duration">4:15</p>
        </div>
        <h3 className="suggested__video__name">
-       A Brief History Of Creation
+       {card.snippet.title.length>=24?`${card.snippet.title.slice(0,24)}...`:card.snippet.title}
        </h3>
        <div className="suggested__more__info__box">
-        <span className="suggested__video__when__down">80k views  ·  3 days ago</span>
-        <span className="suggested__video__who__down">Dollie Blair</span>
+        <span className="suggested__video__when__down">80k views  ·  {year-Number(card.snippet.publishTime.slice(0,4))>1?`${year-Number(card.snippet.publishTime.slice(0,4))} years ago`:year-Number(card.snippet.publishTime.slice(0,4)) ==1? `1 year ago`:month-Number(card.snippet.publishTime.slice(5,7))>0?`${month-Number(card.snippet.publishTime.slice(5,7))} months ago`:date-Number(card.snippet.publishTime.slice(8,10))>0?`${date-Number(card.snippet.publishTime.slice(8,10))} days ago`:'today'}</span>
+        <span className="suggested__video__who__down">{card.snippet.channelTitle
+}</span>
        </div>
-      </div>
+      </Link>
     </SwiperSlide>
-        <SwiperSlide>
-      <div className="link">
-       <div className="suggested__video__image__box">
-       <img src={ExampleSug} alt="account icon" width={250} height={150} className="suggested__video__img" />
-       <p className="suggested__video__duration">4:15</p>
-       </div>
-       <h3 className="suggested__video__name">
-       A Brief History Of Creation
-       </h3>
-       <div className="suggested__more__info__box">
-        <span className="suggested__video__when__down">80k views  ·  3 days ago</span>
-        <span className="suggested__video__who__down">Dollie Blair</span>
-       </div>
-      </div>
-    </SwiperSlide>
-        <SwiperSlide>
-      <div className="link">
-       <div className="suggested__video__image__box">
-       <img src={ExampleSug} alt="account icon" width={250} height={150} className="suggested__video__img" />
-       <p className="suggested__video__duration">4:15</p>
-       </div>
-       <h3 className="suggested__video__name">
-       A Brief History Of Creation
-       </h3>
-       <div className="suggested__more__info__box">
-        <span className="suggested__video__when__down">80k views  ·  3 days ago</span>
-        <span className="suggested__video__who__down">Dollie Blair</span>
-       </div>
-      </div>
-    </SwiperSlide>
-        <SwiperSlide>
-      <div className="link">
-       <div className="suggested__video__image__box">
-       <img src={ExampleSug} alt="account icon" width={250} height={150} className="suggested__video__img" />
-       <p className="suggested__video__duration">4:15</p>
-       </div>
-       <h3 className="suggested__video__name">
-       A Brief History Of Creation
-       </h3>
-       <div className="suggested__more__info__box">
-        <span className="suggested__video__when__down">80k views  ·  3 days ago</span>
-        <span className="suggested__video__who__down">Dollie Blair</span>
-       </div>
-      </div>
-    </SwiperSlide>
-        <SwiperSlide>
-      <div className="link">
-       <div className="suggested__video__image__box">
-       <img src={ExampleSug} alt="account icon" width={250} height={150} className="suggested__video__img" />
-       <p className="suggested__video__duration">4:15</p>
-       </div>
-       <h3 className="suggested__video__name">
-       A Brief History Of Creation
-       </h3>
-       <div className="suggested__more__info__box">
-        <span className="suggested__video__when__down">80k views  ·  3 days ago</span>
-        <span className="suggested__video__who__down">Dollie Blair</span>
-       </div>
-      </div>
-    </SwiperSlide>
-        <SwiperSlide>
-      <div className="link">
-       <div className="suggested__video__image__box">
-       <img src={ExampleSug} alt="account icon" width={250} height={150} className="suggested__video__img" />
-       <p className="suggested__video__duration">4:15</p>
-       </div>
-       <h3 className="suggested__video__name">
-       A Brief History Of Creation
-       </h3>
-       <div className="suggested__more__info__box">
-        <span className="suggested__video__when__down">80k views  ·  3 days ago</span>
-        <span className="suggested__video__who__down">Dollie Blair</span>
-       </div>
-      </div>
-    </SwiperSlide>
+)):''}
+      
+    
    
         
         </Swiper>

@@ -1,173 +1,50 @@
+
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { Link } from 'react-router-dom';
 import { Keyboard, Scrollbar, Navigation, Pagination } from 'swiper/modules';
+import useFetch from './useFetch';
 import PrivateCustomButtonsBox from './PrivateCustomButtonsBox';
-import Example from './../assets/image/forexample.png'
 import 'swiper/css';
 import 'swiper/css/navigation';
+import { useEffect } from 'react';
 
 const PrivateSection = () => {
+  const data = useFetch('animals')
+  let year = new Date().getFullYear()
+  let month = new Date().getMonth() + 1
+  let date = new Date().getDate()
+  useEffect(()=>{
+    console.log(data);
+  },[data])
   return (
     <section className="private">
     <div className="private__container">
     <Swiper  
     slidesPerView={5.8}
     spaceBetween={30}
-    loop={true}
+    loop={data.length>=6?true:false}
     centeredSlides={false}
-    slidesPerGroupSkip={10}
+    slidesPerGroupSkip={20}
     modules={[Keyboard, Scrollbar, Navigation, Pagination]}
     className="mySwiper private__swiper">
     <PrivateCustomButtonsBox/>
-    <SwiperSlide>
-      <div className="link">
+{data?  data.map((card,index)=>(
+      <SwiperSlide key={index}>
+      <Link to={`/video/:${card.id.videoId}`} className="link">
        <div className="private__video__image__box">
-       <img src={Example} alt="account icon" width={250} height={150} className="private__video__img" />
+       <img src={card.snippet.thumbnails.medium.url} alt="account icon" className="private__video__img" />
        <p className="private__video__duration">4:15</p>
        </div>
        <h3 className="private__video__name">
-       A Brief History Of Creation
+       {card.snippet.title.length>=24?`${card.snippet.title.slice(0,24)}...`:card.snippet.title}
        </h3>
        <div className="private__more__info__box">
-        <span className="private__video__when__down">80k views  ·  3 days ago</span>
-        <span className="private__video__who__down">Dollie Blair</span>
+        <span className="private__video__when__down">80k views  ·  {year-Number(card.snippet.publishTime.slice(0,4))>1?`${year-Number(card.snippet.publishTime.slice(0,4))} years ago`:year-Number(card.snippet.publishTime.slice(0,4)) ==1? `1 year ago`:month-Number(card.snippet.publishTime.slice(5,7))>0?`${month-Number(card.snippet.publishTime.slice(5,7))} months ago`:date-Number(card.snippet.publishTime.slice(8,10))>0?`${date-Number(card.snippet.publishTime.slice(8,10))} days ago`:'today'}</span>
+        <span className="private__video__who__down">The Gecko</span>
        </div>
-      </div>
+      </Link>
     </SwiperSlide>
-    <SwiperSlide>
-      <div className="link">
-       <div className="private__video__image__box">
-       <img src={Example} alt="sd" width={250} height={150} className="private__video__img" />
-       <p className="private__video__duration">4:15</p>
-       </div>
-       <h3 className="private__video__name">
-       A Brief History Of Creation
-       </h3>
-       <div className="private__more__info__box">
-        <span className="private__video__when__down">80k views  ·  3 days ago</span>
-        <span className="private__video__who__down">Dollie Blair</span>
-       </div>
-      </div>
-    </SwiperSlide>
-    <SwiperSlide>
-      <div className="link">
-       <div className="private__video__image__box">
-       <img src={Example} alt="sd" width={250} height={150} className="private__video__img" />
-       <p className="private__video__duration">4:15</p>
-       </div>
-       <h3 className="private__video__name">
-       A Brief History Of Creation
-       </h3>
-       <div className="private__more__info__box">
-        <span className="private__video__when__down">80k views  ·  3 days ago</span>
-        <span className="private__video__who__down">Dollie Blair</span>
-       </div>
-      </div>
-    </SwiperSlide>
-    <SwiperSlide>
-      <div className="link">
-       <div className="private__video__image__box">
-       <img src={Example} alt="sd" width={250} height={150} className="private__video__img" />
-       <p className="private__video__duration">4:15</p>
-       </div>
-       <h3 className="private__video__name">
-       A Brief History Of Creation
-       </h3>
-       <div className="private__more__info__box">
-        <span className="private__video__when__down">80k views  ·  3 days ago</span>
-        <span className="private__video__who__down">Dollie Blair</span>
-       </div>
-      </div>
-    </SwiperSlide>
-    <SwiperSlide>
-      <div className="link">
-       <div className="private__video__image__box">
-       <img src={Example} alt="sd" width={250} height={150} className="private__video__img" />
-       <p className="private__video__duration">4:15</p>
-       </div>
-       <h3 className="private__video__name">
-       A Brief History Of Creation
-       </h3>
-       <div className="private__more__info__box">
-        <span className="private__video__when__down">80k views  ·  3 days ago</span>
-        <span className="private__video__who__down">Dollie Blair</span>
-       </div>
-      </div>
-    </SwiperSlide>
-    <SwiperSlide>
-      <div className="link">
-       <div className="private__video__image__box">
-       <img src={Example} alt="sd" width={250} height={150} className="private__video__img" />
-       <p className="private__video__duration">4:15</p>
-       </div>
-       <h3 className="private__video__name">
-       A Brief History Of Creation
-       </h3>
-       <div className="private__more__info__box">
-        <span className="private__video__when__down">80k views  ·  3 days ago</span>
-        <span className="private__video__who__down">Dollie Blair</span>
-       </div>
-      </div>
-    </SwiperSlide>
-    <SwiperSlide>
-      <div className="link">
-       <div className="private__video__image__box">
-       <img src={Example} alt="sd" width={250} height={150} className="private__video__img" />
-       <p className="private__video__duration">4:15</p>
-       </div>
-       <h3 className="private__video__name">
-       A Brief History Of Creation
-       </h3>
-       <div className="private__more__info__box">
-        <span className="private__video__when__down">80k views  ·  3 days ago</span>
-        <span className="private__video__who__down">Dollie Blair</span>
-       </div>
-      </div>
-    </SwiperSlide>
-    <SwiperSlide>
-      <div className="link">
-       <div className="private__video__image__box">
-       <img src={Example} alt="sd" width={250} height={150} className="private__video__img" />
-       <p className="private__video__duration">4:15</p>
-       </div>
-       <h3 className="private__video__name">
-       A Brief History Of Creation
-       </h3>
-       <div className="private__more__info__box">
-        <span className="private__video__when__down">80k views  ·  3 days ago</span>
-        <span className="private__video__who__down">Dollie Blair</span>
-       </div>
-      </div>
-    </SwiperSlide>
-    <SwiperSlide>
-      <div className="link">
-       <div className="private__video__image__box">
-       <img src={Example} alt="sd" width={250} height={150} className="private__video__img" />
-       <p className="private__video__duration">4:15</p>
-       </div>
-       <h3 className="private__video__name">
-       A Brief History Of Creation
-       </h3>
-       <div className="private__more__info__box">
-        <span className="private__video__when__down">80k views  ·  3 days ago</span>
-        <span className="private__video__who__down">Dollie Blair</span>
-       </div>
-      </div>
-    </SwiperSlide>
-    <SwiperSlide>
-      <div className="link">
-       <div className="private__video__image__box">
-       <img src={Example} alt="sd" width={250} height={150} className="private__video__img" />
-       <p className="private__video__duration">4:15</p>
-       </div>
-       <h3 className="private__video__name">
-       A Brief History Of Creation
-       </h3>
-       <div className="private__more__info__box">
-        <span className="private__video__when__down">80k views  ·  3 days ago</span>
-        <span className="private__video__who__down">Dollie Blair</span>
-       </div>
-      </div>
-    </SwiperSlide>
+)):''}
     </Swiper>
     </div>
     

@@ -39,3 +39,7 @@ body::-webkit-scrollbar {
   .noneNavbar{
     display: none !important;
   }
+
+  .link{
+    text-decoration: none;
+  }
