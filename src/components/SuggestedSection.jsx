@@ -17,8 +17,15 @@ const SuggestedSection = () => {
         <section className="suggested">
         <div className="suggested__container">
         <Swiper  
-        slidesPerView={2.9}
+        slidesPerView={1.3}
         spaceBetween={30}
+        breakpoints={{
+      
+          769: {
+            slidesPerView: 2.9,
+            slidesPerGroup: 2.9,
+          },
+        }}
         loop={data.length>=6?true:false}
         centeredSlides={false}
         slidesPerGroupSkip={10}

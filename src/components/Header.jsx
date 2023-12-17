@@ -6,9 +6,17 @@ import More from './../assets/image/moreIcon.png'
 import Bell from './../assets/image/bell.png'
 import AccountImage from './../assets/image/Userpic.png'
 import './styles/Header.scss'
+import { useContext } from "react";
+import { InputContext } from "../App";
 
 const Header = () => {
-    
+    const {setSearch} = useContext(InputContext)
+    function Submitted(e){
+        e.preventDefault()
+        let searchQuery = e.target.searchQuery.value.trim()
+        setSearch(searchQuery)
+       
+    }
     return (
         <header className="header">
         <div className="header__container">
@@ -18,8 +26,8 @@ const Header = () => {
         <img src={Logo} alt="logo" width={116} height={25} className="header__logo" />
         </a>
         
-        <form className="header__form">
-        <input type="text" placeholder="Search" className="header__search__input" />
+        <form onSubmit={Submitted} className="header__form">
+        <input name="searchQuery" type="text"  placeholder="Search" className="header__search__input" />
         <button className="header__search__btn"><FiSearch className="header__search__btn__icon" /></button>
         </form>
         
@@ -31,7 +39,7 @@ const Header = () => {
         <img src={More} alt="more icon" width={21} height={21} className="header__more__Icon" />
         </li>
         <li className="header__more__item__bell">
-            <span className="header__bell__title">3</span>
+        <span className="header__bell__title">3</span>
         <img src={Bell} alt="bell icon" width={22} height={26} className="header__bell__Icon" />
         </li>
         <li className="header__more__item">

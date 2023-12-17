@@ -6,15 +6,33 @@
     padding-top: 30px;
     width: 100%;
     padding-left: 31px;
+
+    @media screen and (max-width:668px) {
+        @include df(column-reverse);
+    }
 }
 
 .navbar{
     position: fixed;
     overflow-y: scroll;
     top: 114px;
+    z-index: 9999;
     bottom: 0;
+    background-color: $white;
     padding-right: 78px;
     padding-bottom: 40px;
+    @media screen and (max-width:668px) {
+        width: 100%;
+        top: auto;
+        right: 0;
+        left: 0;
+
+    }
+    &__span{
+        @media screen and (max-width:668px) {
+            display: none;
+        }
+    }
     &::-webkit-scrollbar {
         position: absolute;
         display: none;
@@ -38,6 +56,11 @@
         @include df(column);
         gap: 28px;
         margin-bottom: 60px;
+        @media screen and (max-width:668px) {
+            margin-bottom: 0;
+            @include df(row,center,center);
+            gap: 46px;
+        }
     }
     
     &__direction__box.active{
@@ -66,6 +89,9 @@
     &__secondary__list{
         @include df(column);
         gap: 28px;
+        @media screen and (max-width:668px) {
+            display: none;
+        }
     }
     
     &__showMore__box{
@@ -73,6 +99,9 @@
         gap: 13px;
         margin-top: 29px;
         cursor: pointer;
+        @media screen and (max-width:668px) {
+            display: none;
+        }
         svg{
             fill: #0000003d;
         }
@@ -86,6 +115,9 @@
     
     &__settings__box{
         margin-top: 104px;
+        @media screen and (max-width:668px) {
+            display: none;
+        }
     }
 }
 
@@ -93,6 +125,9 @@
     width: 100%;
     margin-top: -5px;
     padding-left: 230px;
+    @media screen and (max-width:668px) {
+            padding-left: 31px;
+    }
 }
 
 .rotate{

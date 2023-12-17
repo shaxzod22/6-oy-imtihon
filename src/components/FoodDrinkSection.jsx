@@ -18,8 +18,15 @@ const FoodDrinkSection = () => {
     <section className="food">
       <div className="food__container">
       <Swiper  
-    slidesPerView={5.8}
+    slidesPerView={2.3}
     spaceBetween={30}
+    breakpoints={{
+      
+      769: {
+        slidesPerView: 5.8,
+        slidesPerGroup: 5.8,
+      },
+    }}
     loop={data.length>=6?true:false}
     centeredSlides={false}
     slidesPerGroupSkip={10}

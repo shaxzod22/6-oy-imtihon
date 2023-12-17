@@ -16,7 +16,7 @@ const useFetch = (query) => {
               order: 'date'
             },
             headers: {
-              'X-RapidAPI-Key': 'c4eccd9910mshd38a36a1d4e21c3p162e6ejsnebf1908d82f6',
+              'X-RapidAPI-Key': '1deca022c2mshf87e6256ec348dep142c0ejsn9b42a6816157',
               'X-RapidAPI-Host': 'youtube-v31.p.rapidapi.com'
             }
           };
