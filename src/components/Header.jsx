@@ -10,17 +10,21 @@ import { useContext } from "react";
 import { InputContext } from "../App";
 
 const Header = () => {
-    const {setSearch} = useContext(InputContext)
+    let searchQuery = ''
+    const {search,setSearch} = useContext(InputContext)
     function Submitted(e){
         e.preventDefault()
-        let searchQuery = e.target.searchQuery.value.trim()
+        setSearch('')
+         searchQuery = e.target.searchQuery.value.trim()
         setSearch(searchQuery)
+        e.target.reset()
        
     }
+    console.log(search);
     return (
         <header className="header">
         <div className="header__container">
-        <AiOutlineMenu className="header__menu__burger" />
+        <AiOutlineMenu className="header__menu__burger navbar__span" />
         
         <a href="/" className="header__logo__link">
         <img src={Logo} alt="logo" width={116} height={25} className="header__logo" />
@@ -32,13 +36,13 @@ const Header = () => {
         </form>
         
         <ul className="header__more__list">
-        <li className="header__more__item">
+        <li className="header__more__item navbar__span">
         <img src={Camera} alt="camera icon" width={27} height={20} className="header__camera__Icon" />
         </li>
-        <li className="header__more__item">
+        <li className="header__more__item navbar__span">
         <img src={More} alt="more icon" width={21} height={21} className="header__more__Icon" />
         </li>
-        <li className="header__more__item__bell">
+        <li className="header__more__item__bell navbar__span">
         <span className="header__bell__title">3</span>
         <img src={Bell} alt="bell icon" width={22} height={26} className="header__bell__Icon" />
         </li>

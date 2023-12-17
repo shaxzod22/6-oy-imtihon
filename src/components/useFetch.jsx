@@ -1,15 +1,18 @@
 
 import axios from "axios"
+import { useContext } from "react";
 import { useState } from "react";
 import { useEffect } from "react";
+import { InputContext } from "../App";
 const useFetch = (query) => {
+  const {search} = useContext(InputContext)
     let [data,setData] = useState([])
       useEffect(()=>{
         const options = {
             method: 'GET',
             url: 'https://youtube-v31.p.rapidapi.com/search',
             params: {
-              q:query,
+              q:search?search:query,
               part: 'snippet,id',
               regionCode: 'US',
               maxResults: '20',
@@ -30,7 +33,7 @@ const useFetch = (query) => {
             }
           }
         getData()
-      },[])
+      },[search,query])
       
      
   return data
