@@ -32,8 +32,8 @@ const SuggestedSection = () => {
         <CustomBtn/>
         </div>
         {data?  data.map((card,index)=>(
-       <SwiperSlide key={index}>
-      <Link to={`/video/:${card.id.videoId}`} className="link">
+      card.id.videoId? <SwiperSlide key={index}>
+      <Link to={`/video/${card.id.videoId}`} className="link">
        <div className="suggested__video__image__box">
        <img src={card.snippet.thumbnails.medium.url} alt="account icon" width={250} height={150} className="suggested__video__img" />
        <p className="suggested__video__duration">4:15</p>
@@ -47,7 +47,7 @@ const SuggestedSection = () => {
 }</span>
        </div>
       </Link>
-    </SwiperSlide>
+    </SwiperSlide>:''
 )):''}
       
     

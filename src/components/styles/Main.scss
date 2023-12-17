@@ -50,6 +50,8 @@
     &__direction__box{
         @include df(row,center);
         gap: 13px;
+        text-decoration: none;
+        color: black;
         svg{
             fill: #0000003d;
         }

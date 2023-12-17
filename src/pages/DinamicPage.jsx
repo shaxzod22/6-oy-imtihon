@@ -1,9 +1,10 @@
-import Header from "../components/Header"
+
+import VideoPlay from "../components/VideoPlay"
 
 const DinamicPage = () => {
   return (
     <>
-      <Header/>
+      <VideoPlay/>
     </>
   )
 }

@@ -44,8 +44,8 @@ const FoodDrinkSection = () => {
     </div>
     </div>
     {data?  data.map((card,index)=>(
-     <SwiperSlide key={index}>
-    <Link to={`/video/:${card.id.videoId}`} className="link">
+    card.id.videoId?  <SwiperSlide key={index}>
+    <Link to={`/video/${card.id.videoId}`} className="link">
      <div className="food__video__image__box">
      <img src={card.snippet.thumbnails.medium.url} alt="account icon" width={250} height={150} className="food__video__img" />
      <p className="food__video__duration">4:15</p>
@@ -59,7 +59,7 @@ const FoodDrinkSection = () => {
 }</span>
      </div>
     </Link>
-  </SwiperSlide>
+  </SwiperSlide>:''
 )):''}
     
     

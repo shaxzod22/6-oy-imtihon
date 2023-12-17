@@ -29,8 +29,8 @@ const PrivateSection = () => {
     className="mySwiper private__swiper">
     <PrivateCustomButtonsBox/>
 {data?  data.map((card,index)=>(
-      <SwiperSlide key={index}>
-      <Link to={`/video/:${card.id.videoId}`} className="link">
+     card.id.videoId?  <SwiperSlide key={index}>
+      <Link to={`/video/${card.id.videoId}`} className="link">
        <div className="private__video__image__box">
        <img src={card.snippet.thumbnails.medium.url} alt="account icon" className="private__video__img" />
        <p className="private__video__duration">4:15</p>
@@ -43,7 +43,7 @@ const PrivateSection = () => {
         <span className="private__video__who__down">The Gecko</span>
        </div>
       </Link>
-    </SwiperSlide>
+    </SwiperSlide>:''
 )):''}
     </Swiper>
     </div>

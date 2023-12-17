@@ -1,0 +1,287 @@
+@import './mixins.scss';
+@import './variables.scss';
+
+
+.main{
+    @include df();
+    position: relative;
+    padding-top: 20px;
+    width: 100%;
+    padding-left: 31px;
+}
+
+.videoPlay{
+    width: 100%;
+    &__container{
+        padding-right: 477px;
+    }
+}
+
+.video{
+    &__box{
+        padding-bottom: 20px;
+        border-bottom: 1px solid #D8D8D8;
+        width: 100%;
+        margin-bottom: 38px;
+    }
+    
+    &__iframe{
+        width: 100%;
+        border: none;
+        border-radius: 20px;
+        margin-bottom: 20px;
+    }
+    
+    &__heading{
+        font-size: 36px;
+        line-height: 45px;
+        color: $video-heading-color;
+        margin-bottom: 14px;
+    }
+    
+    &__likes__box{
+        @include df(row,center,space-between);
+        width: 100%;
+    }
+    
+    &__views__title{
+        font-size: 20px;
+        line-height: 25px;
+        color: $video-view-color;
+    }
+    
+    &__likes__btn__box{
+        @include df(row,center);
+        gap: 10px;
+    }
+    
+    &__likes__btn{
+        @include df(row,center,center);
+        gap: 8px;
+        width: 100px;
+        height: 40px;
+        background-color: #EBEBEB;
+        border-radius: 20px;
+        border: none;
+        font-size: 16px;
+        line-height: 20px;
+        cursor: pointer;
+        &:hover{
+            background-color: #d2d2d2;
+        }
+        &:active{
+           opacity: 0.6;
+        }
+    }
+    
+    &__like__btn__icon{
+        width: 14px;
+        height: 13px;
+    }
+    
+    &__more__btn{
+        background-color: transparent;
+        margin-left: 30px;
+        border: none;
+        cursor: pointer;
+        &:hover{
+            opacity: 0.6;
+        }
+        &:active{
+            opacity: 0.3;
+         }
+    }
+    
+    &__more__btn__icon{
+        transform: scale(2.2);
+    }
+
+    &__comment__box{
+        @include df(row,flex-start,space-between);
+        width: 100%;
+        padding-bottom: 48px;
+    }
+
+    &__comment__left__side{
+        @include df();
+        gap: 12px;
+    }
+
+    &__channel__image{
+        width: 80px;
+        height: 80px;
+    }
+
+    &__comment__inner__box{
+        max-width: 820px;
+    }
+
+    &__channel__name{
+        font-size: 26px;
+        line-height: 32px;
+        margin-bottom: 4px;
+        color: $video-heading-color;
+    }
+
+    &__published__date{
+        font-size: 13px;
+        line-height: 16px;
+        color: $video-view-color;
+        margin-bottom: 14px;
+    }
+
+    &__comment__title{
+        font-size: 16px;
+        line-height: 22px;
+        margin-bottom: 15px;
+        color: #00000099;
+    }
+
+    &__comment__showMore__btn{
+        font-size: 20px;
+        line-height: 25px;
+        color: $video-view-color;
+        border: none;
+        background-color: transparent;
+        cursor: pointer;
+
+        &:active{
+            opacity: 0.6;
+        }
+    }
+
+    &__subs__btn{
+        width: 154px;
+    height: 40px;
+    background-color: $bell__title-color;
+    color: white;
+    font-size: 16px;
+    line-height: 20px;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    &:hover{
+        opacity: 0.8;
+    }
+    &:active{
+        opacity: 0.6;
+    }
+    }
+}
+
+.nextVideo{
+    position: fixed;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    top: 110px;
+    bottom: 0;
+    right: 0;
+    padding-right: 70px;
+    padding-bottom: 40px;
+    &::-webkit-scrollbar {
+        position: absolute;
+        display: none;
+    }
+    
+    &:hover{
+        &::-webkit-scrollbar {
+            display: block;
+            width: 8px;
+        }
+        
+        /* Handle */
+        &::-webkit-scrollbar-thumb {
+            background: rgb(145, 145, 145); 
+            border-radius: 10px;
+        }
+    }
+    &__container{
+        width: 367px;
+    }
+    
+    &__title__box{
+        @include df(row,center,space-between);
+        width: 100%;
+        margin-bottom: 25px;
+    }
+    
+    &__heading{
+        font-size: 36px;
+        line-height: 45px;
+    }
+    
+    &__turn__btn{
+        @include df(row,center);
+        gap: 29px;
+        cursor: pointer;
+        background-color: transparent;
+        color: $video-heading-color;
+        font-size: 16px;
+        line-height: 20px;
+        border: none;
+        letter-spacing: 1px;
+        font-weight: bolder;
+        &:active{
+            opacity: 0.6;
+        }
+    }
+    
+    &__blue__circle{
+        display: inline-block;
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        background-color: #2196F3;
+    }
+    
+    &__list{
+        @include df(column);
+        gap: 23px;
+        width: 100%;
+    }
+    
+    &__item{
+        @include df(column);
+        width: 100%;
+        text-decoration: none;
+    }
+    
+    &__video__image__box{
+        position: relative;
+        margin-bottom: 13px;
+        width: 100%;
+    }
+    
+    &__video__img{
+        width: 100%;
+        height: 213px;
+        border-radius: 20px;
+    }
+    
+    &__video__duration{
+        position: absolute;
+        right: 10px;
+        bottom: 10px;
+        background-color: #0000004d;
+        padding: 3px 8px;
+        border-radius: 12px;
+        color: white;
+        font-size: 14px;
+        line-height: 17.5px;
+    }
+    
+    &__video__name{
+        font-size: 26px;
+        line-height: 32px;
+        margin-bottom: 11px;
+        color: $video-heading-color;
+    }
+    
+    &__more__info__box{
+        width: 100%;
+        @include df(row,center,space-between);
+        font-size: 18px;
+        line-height: 22.5px;
+        color: $video-view-color;
+    }
+}

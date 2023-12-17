@@ -1,3 +1,4 @@
+
 import axios from "axios"
 import { useState } from "react";
 import { useEffect } from "react";
@@ -34,5 +35,6 @@ const useFetch = (query) => {
      
   return data
 }
+
 
 export default useFetch
